@@ -33,10 +33,10 @@ const serverStart = async () => {
     console.log('DB CONNECTED');
   });
 
-  const SERVER_PORT = process.env.PORT;
-  app.listen(SERVER_PORT, () => {
-    console.log(`Server running at port ${SERVER_PORT}`);
-  });
+  // const SERVER_PORT = process.env.PORT;
+  // app.listen(SERVER_PORT, () => {
+  //   console.log(`Server running at port ${SERVER_PORT}`);
+  // });
 };
 
 serverStart();
