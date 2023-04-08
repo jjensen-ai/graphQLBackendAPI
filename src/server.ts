@@ -27,12 +27,11 @@ async function serverStart() {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    cache: 'bounded',
   });
 
   await server.start();
 
-  app.use('/graphql', expressMiddleware(server));
+  app.use('/', expressMiddleware(server));
 
   await mongoose.connect(`${DB}`).then(() => {
     console.log('DB CONNECTED');
