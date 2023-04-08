@@ -38,5 +38,5 @@ async function serverStart() {
   //   console.log(`Server running at port ${SERVER_PORT}`);
   // });
 }
-
-export default serverStart();
+serverStart();
+export default serverStart;
