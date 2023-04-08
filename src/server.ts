@@ -3,12 +3,13 @@ import express from 'express';
 import mongoose from 'mongoose';
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
-import { ApolloServer } from 'apollo-server-express';
+import { ApolloServer } from '@apollo/server';
+import { expressMiddleware } from '@apollo/server/express4';
 
 // Imports for API
 
-import { typeDefs } from './src/graphql/typeDefs';
-import { resolvers } from './src/graphql/resolvers';
+import { typeDefs } from './graphql/typeDefs';
+import { resolvers } from './graphql/resolvers';
 
 // Important stuff for making the app work
 
@@ -23,11 +24,15 @@ async function serverStart() {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
-  const server = new ApolloServer({ typeDefs, resolvers, cache: 'bounded' });
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    cache: 'bounded',
+  });
 
   await server.start();
 
-  server.applyMiddleware({ app });
+  app.use('/graphql', expressMiddleware(server));
 
   await mongoose.connect(`${DB}`).then(() => {
     console.log('DB CONNECTED');
@@ -38,5 +43,4 @@ async function serverStart() {
   //   console.log(`Server running at port ${SERVER_PORT}`);
   // });
 }
-serverStart();
 export default serverStart;
