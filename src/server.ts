@@ -8,8 +8,8 @@ import { expressMiddleware } from '@apollo/server/express4';
 
 // Imports for API
 
-import { typeDefs } from './graphql/typeDefs';
-import { resolvers } from './graphql/resolvers';
+import { typeDefs } from './graphql/typeDefs.js';
+import { resolvers } from './graphql/resolvers.js';
 
 // Important stuff for making the app work
 
