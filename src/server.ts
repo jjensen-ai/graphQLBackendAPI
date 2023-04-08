@@ -1,8 +1,8 @@
 // Imports for node modules
 import express from 'express';
 import mongoose from 'mongoose';
-const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
+import dotenv from 'dotenv';
+import bodyParser from 'body-parser';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 
@@ -13,13 +13,13 @@ import { resolvers } from './graphql/resolvers';
 
 // Important stuff for making the app work
 
-dotenv.config({ path: `${__dirname}/config.env` });
+dotenv.config({ path: './config.env' });
+const DB = process.env.DATABASE;
+const SERVER_PORT = process.env.PORT;
 
 //Start my Server
 async function serverStart() {
   const app = express();
-  const DB = process.env.DATABASE;
-  console.log(DB);
 
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
@@ -42,9 +42,8 @@ async function serverStart() {
     console.log('DB CONNECTED');
   });
 
-  // const SERVER_PORT = process.env.PORT;
-  // app.listen(SERVER_PORT, () => {
-  //   console.log(`Server running at port ${SERVER_PORT}`);
-  // });
+  app.listen(SERVER_PORT, () => {
+    console.log(`Server running at port ${SERVER_PORT}`);
+  });
 }
-export default serverStart();
+serverStart();
