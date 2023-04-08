@@ -31,7 +31,12 @@ async function serverStart() {
 
   await server.start();
 
-  app.use('/', expressMiddleware(server));
+  app.use(
+    '/graphql',
+    expressMiddleware(server, {
+      context: async ({ req }) => ({ token: req.headers.authorization }),
+    })
+  );
 
   await mongoose.connect(`${DB}`).then(() => {
     console.log('DB CONNECTED');
