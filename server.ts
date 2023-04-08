@@ -15,7 +15,7 @@ import { resolvers } from './src/graphql/resolvers';
 dotenv.config({ path: `${__dirname}/config.env` });
 
 //Start my Server
-const serverStart = async () => {
+async function serverStart() {
   const app = express();
   const DB = process.env.DATABASE;
   console.log(DB);
@@ -37,6 +37,6 @@ const serverStart = async () => {
   // app.listen(SERVER_PORT, () => {
   //   console.log(`Server running at port ${SERVER_PORT}`);
   // });
-};
+}
 
 serverStart();
