@@ -1,4 +1,4 @@
-import { gql } from 'graphql-tag';
+import { gql } from 'apollo-server-express';
 
 export const typeDefs = gql`
   type employee {
@@ -23,23 +23,10 @@ export const typeDefs = gql`
     login(username: String!, password: String!): user
   }
 
-  type Mutation {
+  type Mutation{
     signUp(username: String!, email: String!, password: String!): user
-    addEmployee(
-      firstName: String!
-      lastName: String!
-      email: String!
-      gender: String!
-      salary: Float!
-    ): employee
-    updateEmployee(
-      id: ID!
-      firstName: String!
-      lastName: String!
-      email: String!
-      gender: String!
-      salary: Float!
-    ): employee
+    addEmployee(firstName: String!, lastName: String!, email: String!, gender: String!, salary: Float!): employee
+    updateEmployee(id: ID!, firstName: String!, lastName: String!, email: String!, gender: String!, salary: Float!): employee
     deleteEmployee(id: ID!): String
   }
 `;
