@@ -39,4 +39,4 @@ async function serverStart() {
   // });
 }
 
-export default serverStart();
+export default serverStart;
