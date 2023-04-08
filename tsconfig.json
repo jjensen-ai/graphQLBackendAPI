@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "CommonJs",
+        "jsx": "preserve",
+        "strict": true,
+        "esModuleInterop": true,
+        "lib": ["es2022", "ESNext.AsyncIterable"]
+    },
+    "exclude": ["node_modules"]
+}

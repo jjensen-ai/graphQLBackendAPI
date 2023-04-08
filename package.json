@@ -1,0 +1,27 @@
+{
+  "name": "100740151_comp3123_assignment1",
+  "version": "1.0.0",
+  "description": "Simple backend application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.ts",
+    "dev": "nodemon --exec ts-node server.ts"
+  },
+  "author": "Jordon Jensen",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "apollo-server-express": "^3.11.1",
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "mongoose": "^6.6.6",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
