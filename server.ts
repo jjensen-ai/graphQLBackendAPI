@@ -22,7 +22,6 @@ async function serverStart() {
 
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
-  app.use('/models');
 
   const server = new ApolloServer({ typeDefs, resolvers, cache: 'bounded' });
 
