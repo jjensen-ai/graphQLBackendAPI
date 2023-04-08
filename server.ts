@@ -7,8 +7,8 @@ import { ApolloServer } from 'apollo-server-express';
 
 // Imports for API
 
-import { typeDefs } from './graphql/typeDefs';
-import { resolvers } from './graphql/resolvers';
+import { typeDefs } from './src/graphql/typeDefs';
+import { resolvers } from './src/graphql/resolvers';
 
 // Important stuff for making the app work
 
