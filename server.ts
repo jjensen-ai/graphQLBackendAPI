@@ -35,7 +35,7 @@ const serverStart = async () => {
 
   const SERVER_PORT = process.env.PORT;
   app.listen(SERVER_PORT, () => {
-    console.log(`Server running at http://localhost:${SERVER_PORT}/`);
+    console.log(`Server running at port ${SERVER_PORT}`);
   });
 };
 
